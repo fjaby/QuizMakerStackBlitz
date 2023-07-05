@@ -1,0 +1,16 @@
+.mat-button-toggle-checked{
+  background-color: lightgreen;
+}
+.mat-button-toggle-disabled{
+  color:black;
+}
+
+.answer {
+  &__correct {
+    background-color: lightgreen;
+  }
+
+  &__incorrect {
+    background-color: lightcoral;
+  }
+}

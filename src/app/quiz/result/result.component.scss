@@ -1,0 +1,24 @@
+.results{
+  &__score{
+    margin: 20px;
+    border: 1px solid;
+    border-radius: 16px;
+    text-align: center;
+
+    &__text{
+      margin:auto;
+      &__bad{
+        background-color: red;
+        color:white;
+      }
+      &__medium{
+        background-color: yellow;
+      }
+      &__good{
+        background-color: green;
+        color:white;
+      }
+
+    }
+  }
+}

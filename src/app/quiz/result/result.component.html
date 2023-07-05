@@ -1,0 +1,9 @@
+<h1 class="app__title">Results</h1>
+<div *ngIf="questions$">
+  <app-question [displayResult]="true" *ngFor="let question of questions$ | async" [question]="question"></app-question>
+</div>
+<div class="results__score" [ngClass]="resultClass()">
+  <p class="results__score__text"> Your scored {{goods}} out of {{totals}}</p>
+</div>
+
+<button mat-raised-button routerLink=""> Create a new quiz</button>

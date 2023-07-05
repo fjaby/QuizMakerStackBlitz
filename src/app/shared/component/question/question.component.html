@@ -1,0 +1,13 @@
+<mat-card *ngIf="question">
+  <mat-card-content>
+    <div [innerHTML]="question.question"></div>
+    <mat-button-toggle-group [disabled]="displayResult" [value]="question.selected_answer" #group="matButtonToggleGroup"
+                             (change)="selectResponse(group.value)" name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle [attr.class]="displayResponse(answer)" *ngFor="let answer of question.answers"
+                         [value]="answer">
+        <label [innerHTML]="answer">
+        </label>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-content>
+</mat-card>

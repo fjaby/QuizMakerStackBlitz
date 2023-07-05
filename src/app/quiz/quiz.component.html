@@ -5,27 +5,46 @@
       <mat-form-field class="quiz__app__formfield">
         <mat-label>Select a category</mat-label>
         <mat-select id="categorySelect" formControlName="category">
-          <mat-option *ngFor="let category of categories$ | async" [value]="category.id">{{category.name}}</mat-option>
+          <mat-option
+            *ngFor="let category of categories$ | async"
+            [value]="category.id"
+            >{{ category.name }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Select difficulty</mat-label>
         <mat-select id="difficultySelect" formControlName="difficulty">
-          <mat-option *ngFor="let value of DifficultiesEnum | keyvalue"
-                      [value]="value.value">{{value.value}}</mat-option>
+          <mat-option
+            *ngFor="let value of DifficultiesEnum | keyvalue: originalOrder"
+            [value]="value.value"
+            >{{ value.value }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
-      <button id="createBtn" mat-raised-button color="primary" (click)="generateQuiz()">Create</button>
+      <button
+        id="createBtn"
+        mat-raised-button
+        color="primary"
+        (click)="generateQuiz()"
+      >
+        Create
+      </button>
     </form>
   </div>
 </div>
 <div class="quiz__center app__center">
   <div *ngIf="questions$">
-    <app-question (selectedResponseEvent)="respondToQuestion($event)" *ngFor="let question of questions$ | async"
-                  [question]="question"></app-question>
+    <app-question
+      (selectedResponseEvent)="respondToQuestion($event)"
+      *ngFor="let question of questions$ | async"
+      [question]="question"
+    ></app-question>
   </div>
 </div>
 <div class="quiz__action">
-  <button *ngIf="respondToSend" mat-raised-button routerLink="result">Submit</button>
+  <button *ngIf="respondToSend" mat-raised-button routerLink="result">
+    Submit
+  </button>
 </div>
